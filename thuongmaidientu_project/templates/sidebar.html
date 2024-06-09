@@ -1,0 +1,118 @@
+
+<ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
+        <div class="sidebar-brand-text " style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+            Thế giới công nghệ
+        </div>
+    </a>
+    <div style="text-align: center;"> 
+        <img src="/media/logo_web/logo_web.png" alt="" width="110" height="110">
+        <div style="color: yellow;">TechnologyWorld.com.vn</div>
+    </div>
+    <!-- Divider -->
+    <br>
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link">
+            <span class="fas fa-list-alt"></span>
+            <span>Phân loại theo nhãn hàng</span>
+        </a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-mobile-alt"></i>
+            <span>Điện thoại</span>
+        </a>
+
+        <div id="collapsePages1" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{% url 'list_iphone' %}">IPHONE</a>
+                <a class="collapse-item" href="{% url 'list_samsung' %}">SAMSUNG</a>
+                <a class="collapse-item" href="{% url 'list_xiaomi' %}">XIAOMI</a> 
+            </div>
+        </div>
+    </li>
+
+    {% comment %} thêm list của laptop {% endcomment %}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-laptop"></i>
+            <span>Laptop</span>
+        </a>
+
+        <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{% url 'list_macbook' %}">MACBOOK</a>
+                <a class="collapse-item" href="{% url 'list_lenovo' %}">LENOVO</a>
+                <a class="collapse-item" href="{% url 'list_dell' %}">DELL</a> 
+            </div>
+        </div>
+    </li>
+
+    {% comment %} thêm list của đồng hồ thông minh {% endcomment %}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-clock"></i>
+            <span>Smart Watch</span>
+        </a>
+        <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{% url 'list_apple_watch' %}">APPLE WATCH</a>
+                <a class="collapse-item" href="{% url 'list_samsung_watch' %}">SAMSUNG</a>
+                <a class="collapse-item" href="{% url 'list_xiaomi_watch' %}">XIAOMI</a>
+            </div>
+        </div>
+    </li>
+
+    {% comment %} thêm list của Tai nghe {% endcomment %}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages5"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-headphones"></i>
+            <span>Tai nghe</span>
+        </a>
+        <div id="collapsePages5" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{% url 'list_airpods' %}">APPLE</a>
+                <a class="collapse-item" href="{% url 'list_samsung_headphone' %}">SAMSUNG</a>
+                <a class="collapse-item" href="{% url 'list_xiaomi_headphone' %}">XIAOMI</a>
+            </div>
+        </div>
+    </li>
+
+    {% comment %} thêm list của tivi {% endcomment %}
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages4"
+            aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-tv"></i>
+            <span>Tivi</span>
+        </a>
+
+        <div id="collapsePages4" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="{% url 'list_samsungTV' %}">SAMSUNG</a>
+                <a class="collapse-item" href="{% url 'list_xiaomiTV' %}">XIAOMI</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+    </div>
+
+    <!-- Sidebar Message -->
+
+</ul>

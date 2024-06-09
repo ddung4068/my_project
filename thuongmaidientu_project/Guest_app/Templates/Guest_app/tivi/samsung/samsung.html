@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- chatbot  -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+intent="WELCOME"
+chat-title="Website_for_technology"
+agent-id="62c122e5-9221-4de4-b5ea-f808410bb20c"
+language-code="en">
+</df-messenger>
+
+    <div class="container px-1 px-lg-5 mt-0">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">    
+            {% for samsung_tv in samsung_tv  %}
+            <div class="col mb-1">
+                <div class="card h-100">
+                    <!-- Product image-->
+                    <img src="/media/{{samsung_tv.Product_Img}}" alt="not_filecover">
+                    
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                    <!-- Product name-->
+                        <div class="text-center">                                 
+                            <h5 class="fw-bolder" style="color: black;">{{samsung_tv.Product_Name}}</h5>
+                        </div>
+
+                    <!-- price product -->
+                        <div class="product__bottom-price">
+                            <span class="product-special" style="color: red;">Giá: {{samsung_tv.Unit_Price}}.vnđ</span>
+                        </div>
+                    <!-- price config -->
+                        <div class="product__bottom-price">
+                            <span class="product-special">
+                                <i class="fas fa-microchip"></i>
+                                    {{samsung_tv.Configuration}}
+                            </span>
+                        </div>
+                    </div> 
+                    <!-- add to cart -->
+                    <div class="card-footer pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <a class="btn btn-outline-dark mt-auto" href="{% url 'detail_TV' samsung_tv.Product_ID %}" style="text-decoration: none;">Chi tiết sản phẩm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}   
+        </div>
+    </div>
+{% endblock content %}

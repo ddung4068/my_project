@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="image-container">
+        {% for image_url in image_urls %}
+        <img src="{{ image_url }}" class="d-block w-80" width="100%" alt="" height="600px">
+        {% endfor %}
+    </div>
+{% endblock content %}

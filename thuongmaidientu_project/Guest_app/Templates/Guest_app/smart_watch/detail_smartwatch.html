@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- chatbot  -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+intent="WELCOME"
+chat-title="Website_for_technology"
+agent-id="62c122e5-9221-4de4-b5ea-f808410bb20c"
+language-code="en">
+</df-messenger>
+
+<!-- detail product -->
+<div class="container">
+    <div class="row">
+        <!-- thêm trực tiếp thuộc tính vào -->
+{% for smart_watch in smart_watch %}
+         <!-- thêm hình ảnh -->
+       <div class="col-xs-4 item-photo">
+            <img src="/media/{{smart_watch.Product_Img}}" alt="not_filecover" height="400">
+        </div>
+        
+        <div class="col-xs-5" style="border:0px solid gray">
+            <!-- thông tin sản phẩm -->
+            <h2 style="color: red;">{{smart_watch.Product_Name}}</h2>    
+
+            <!-- giá -->
+            <h3 class="title-price" style="color:#337ab7">Giá: {{smart_watch.Unit_Price}}.VNĐ</h3>
+            
+            <!-- Detalles especificos del producto -->
+            <div class="section">
+                <h6 class="title-attr" style="margin-top:15px;" >Cấu hình: {{smart_watch.Configuration}}</h6>                    
+                <div>
+                    <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                    <div class="attr" style="width:25px;background:white;"></div>
+                </div>
+            </div>
+            <div class="section" style="padding-bottom:5px;">
+                <h6 class="title-attr">Dung lượng pin: {{ smart_watch.Battery }} mAh</h6>                    
+            </div>
+            <div class="section" style="padding-bottom:5px;">
+                <h6 class="title-attr">Màn hình : {{smart_watch.Other}}</h6>                    
+            </div>
+
+            <!-- Form để nhập số lượng -->
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" id="product_id" name="product_id" value="{{ smart_watch.id }}">
+                <label for="quantity">Số lượng mua:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1"  style="width: 60px;" class="btn btn-default">
+                <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
+            </form>
+            <br>
+        </div>                       
+        <!-- Một số thông tin khác -->
+        <div class="col-xs-9">
+            <ul class="menu-items">
+                <li style="color: black;">Bảo hành : {{smart_watch.Warranty}}</li>
+                <li style="color: black;">Thông tin sản phẩm : {{smart_watch.Description}}</li>
+            </ul>
+{% endfor %}
+        </div>		
+    </div>
+</div>
+{% endblock content %}

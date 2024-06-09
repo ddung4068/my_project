@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- chatbot  -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="Website_for_technology"
+  agent-id="62c122e5-9221-4de4-b5ea-f808410bb20c"
+  language-code="en"
+></df-messenger>
+
+<div class="">
+  <!-- slide banner  -->
+  <div id="demo" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+      <li data-target="#demo" data-slide-to="3"></li>
+    </ul>
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/media/slide_banner/banner1.jpg"  width="100%"  height="220">
+      </div>
+      <div class="carousel-item">
+        <img src="/media/slide_banner/banner2.jpg"  width="100%"  height="220">
+      </div>
+      <div class="carousel-item">
+        <img src="/media/slide_banner/banner3.jpg"  width="100%"  height="220">
+      </div>
+      <div class="carousel-item">
+        <img src="/media/slide_banner/banner4.jpg"  width="100%"  height="220">
+      </div>
+    </div>
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+    </div>
+  </div>
+  <br>
+
+  <!-- alll product by manufacture -->
+  <!-- list -->
+  <nav class="navbar bg-body-tertiary navbar-light bg-success">
+    <div class="container-fluid">
+      <h4 style="color:white">1.Điện thoại</h4>
+    </div>
+  </nav>
+
+  <div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel"  data-interval="1000">
+    <div class="MultiCarousel-inner">
+
+      {% for phone in phone  %}
+      <div class="item">
+        <div class="pad15">
+          <!-- Lấy từ product -->
+          <div class="col mb-1">
+              <div class="card h-60">
+                  <!-- Product image-->
+                  <img src="/media/{{phone.Product_Img}}" alt="not_filecover" width="100%" height="100%">
+                  
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                  <!-- Product name-->
+                      <div class="text-center">                                 
+                          <h4 class="fw-bolder" style="color: black;">{{phone.Product_Name}}</h4>
+                      </div>
+    
+                  <!-- price product -->
+                      <div class="product__bottom-price">
+                          <span class="product-special" style="color: red;">Giá: {{phone.Unit_Price}}.vnđ</span>
+                      </div>
+                  <!-- price config -->
+                      <div class="product__bottom-price">
+                          <span class="product-special">
+                              <i class="fas fa-microchip"></i>
+                                  {{phone.Configuration}}
+                          </span>
+                      </div>
+                  </div> 
+                  <!-- add to cart -->
+                  <div class="card-footer pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                          <a class="btn btn-outline-dark mt-auto" href="{% url 'detail_phone' phone.Product_ID %}" style="text-decoration: none;">Chi tiết sản phẩm</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <button class="btn btn-primary leftLst"><</button>
+    <button class="btn btn-primary rightLst">></button>
+  </div>
+
+  <!-- list -->
+  <nav class="navbar bg-body-tertiary navbar-light bg-success">
+    <div class="container-fluid">
+      <h4 style="color:white">2.Laptop</h4>
+    </div>
+  </nav>
+
+  <div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel"  data-interval="1000">
+    <div class="MultiCarousel-inner">
+      {% for laptop in laptop  %}
+      <div class="item">
+        <div class="pad15">
+          <!-- Lấy từ product-->
+          <div class="col mb-1">
+              <div class="card h-60">
+                  <!-- Product image-->
+                  <img src="/media/{{laptop.Product_Img}}" alt="not_filecover" width="100%" height="100%">
+                  
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                  <!-- Product name-->
+                      <div class="text-center">                                 
+                          <h4 class="fw-bolder" style="color: black;">{{laptop.Product_Name}}</h4>
+                      </div>
+    
+                  <!-- price product -->
+                      <div class="product__bottom-price">
+                          <span class="product-special" style="color: red;">Giá: {{laptop.Unit_Price}}.vnđ</span>
+                      </div>
+                  <!-- price config -->
+                      <div class="product__bottom-price">
+                          <span class="product-special">
+                              <i class="fas fa-microchip"></i>
+                                  {{laptop.Configuration}}
+                          </span>
+                      </div>
+                  </div> 
+                  <!-- add to cart -->
+                  <div class="card-footer pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                          <a class="btn btn-outline-dark mt-auto" href="{% url 'detail_laptop' laptop.Product_ID %}" style="text-decoration: none;">Chi tiết sản phẩm</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <button class="btn btn-primary leftLst"><</button>
+    <button class="btn btn-primary rightLst">></button>
+  </div>
+
+  <!-- list-->
+  <nav class="navbar bg-body-tertiary navbar-light bg-success">
+    <div class="container-fluid">
+      <h4 style="color:white">3.Smart Watch</h4>
+    </div>
+  </nav>
+
+  <div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel"  data-interval="1000">
+    <div class="MultiCarousel-inner">
+      {% for smartwatch in smartwatch  %}
+      <div class="item">
+        <div class="pad15">
+          <!-- Lấy từ product-->
+          <div class="col mb-1">
+              <div class="card h-60">
+                  <!-- Product image-->
+                  <img src="/media/{{smartwatch.Product_Img}}" alt="not_filecover" width="100%" height="100%">
+                  
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                  <!-- Product name-->
+                      <div class="text-center">                                 
+                          <h4 class="fw-bolder" style="color: black;">{{smartwatch.Product_Name}}</h4>
+                      </div>
+    
+                  <!-- price product -->
+                      <div class="product__bottom-price">
+                          <span class="product-special" style="color: red;">Giá: {{smartwatch.Unit_Price}}.vnđ</span>
+                      </div>
+                  <!-- price config -->
+                      <div class="product__bottom-price">
+                          <span class="product-special">
+                              <i class="fas fa-microchip"></i>
+                                  {{smartwatch.Configuration}}
+                          </span>
+                      </div>
+                  </div> 
+                  <!-- add to cart -->
+                  <div class="card-footer pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                          <a class="btn btn-outline-dark mt-auto" href="{% url 'detail_smartwatch' smartwatch.Product_ID %}" style="text-decoration: none;">Chi tiết sản phẩm</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <button class="btn btn-primary leftLst"><</button>
+    <button class="btn btn-primary rightLst">></button>
+  </div>
+
+  <!-- list -->
+  <nav class="navbar bg-body-tertiary navbar-light bg-success">
+    <div class="container-fluid">
+      <h4 style="color:white">4.Tai nghe</h4>
+    </div>
+  </nav>
+
+  <div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel"  data-interval="1000">
+    <div class="MultiCarousel-inner">
+
+      {% for headphone in headphone  %}
+      <div class="item">
+        <div class="pad15">
+          <!-- Lấy từ product -->
+          <div class="col mb-1">
+              <div class="card h-60">
+                  <!-- Product image-->
+                  <img src="/media/{{headphone.Product_Img}}" alt="not_filecover" width="100%" height="100%">
+                  
+                  <!-- Product details-->
+                  <div class="card-body p-4">
+                  <!-- Product name-->
+                      <div class="text-center">                                 
+                          <h4 class="fw-bolder" style="color: black;">{{headphone.Product_Name}}</h4>
+                      </div>
+    
+                  <!-- price product -->
+                      <div class="product__bottom-price">
+                          <span class="product-special" style="color: red;">Giá: {{headphone.Unit_Price}}.vnđ</span>
+                      </div>
+                  <!-- price config -->
+                      <div class="product__bottom-price">
+                          <span class="product-special">
+                              <i class="fas fa-microchip"></i>
+                                  {{headphone.Configuration}}
+                          </span>
+                      </div>
+                  </div> 
+                  <!-- add to cart -->
+                  <div class="card-footer pt-0 border-top-0 bg-transparent">
+                      <div class="text-center">
+                          <a class="btn btn-outline-dark mt-auto" href="{% url 'detail_headphone' headphone.Product_ID %}" style="text-decoration: none;">Chi tiết sản phẩm</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <button class="btn btn-primary leftLst"><</button>
+    <button class="btn btn-primary rightLst">></button>
+  </div>
+
+    <!-- list-->
+    <nav class="navbar bg-body-tertiary navbar-light bg-success">
+      <div class="container-fluid">
+        <h4 style="color:white">5.Tivi</h4>
+      </div>
+    </nav>
+  
+    <div class="MultiCarousel" data-items="1,2,3,4" data-slide="1" id="MultiCarousel"  data-interval="1000">
+      <div class="MultiCarousel-inner">
+        {% for tivi in tivi  %}
+        <div class="item">
+          <div class="pad15">
+            <!-- Lấy từ product-->
+            <div class="col mb-1">
+                <div class="card h-60">
+                    <!-- Product image-->
+                    <img src="/media/{{tivi.Product_Img}}" alt="not_filecover" width="100%" height="100%">
+                    
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                    <!-- Product name-->
+                        <div class="text-center">                                 
+                            <h4 class="fw-bolder" style="color: black;">{{tivi.Product_Name}}</h4>
+                        </div>
+      
+                    <!-- price product -->
+                        <div class="product__bottom-price">
+                            <span class="product-special" style="color: red;">Giá: {{tivi.Unit_Price}}.vnđ</span>
+                        </div>
+                    <!-- price config -->
+                        <div class="product__bottom-price">
+                            <span class="product-special">
+                                <i class="fas fa-microchip"></i>
+                                    {{tivi.Configuration}}
+                            </span>
+                        </div>
+                    </div> 
+                    <!-- add to cart -->
+                    <div class="card-footer pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <a class="btn btn-outline-dark mt-auto" href="{% url 'detail_TV' tivi.Product_ID %}" style="text-decoration: none;">Chi tiết sản phẩm</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+  
+      <button class="btn btn-primary leftLst"><</button>
+      <button class="btn btn-primary rightLst">></button>
+    </div>
+
+</div>
+{% endblock content %}

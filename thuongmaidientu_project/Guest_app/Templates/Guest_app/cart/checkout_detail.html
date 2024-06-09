@@ -1,0 +1,133 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Thế giới công nghệ</title>
+    <link rel="icon" href="/media/logo_web/logo_web.png" type="image/x-icon">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+    />
+    <!-- Include the above in your HEAD tag -->
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- CSS -->
+    
+    <link rel="stylesheet" href="{% static '/static/Guest_app/cart/checkout_order.css' %}">
+</head>
+
+<body>
+    <div>
+        <nav class="navbar" style="background-color: #1CC88A;">
+            <div class="container-fluid">
+                <a href="{% url 'shopping_cart'  %}" >
+                    <img src="/media/logo_web/icon_return.png" alt="" width="60" height="60">
+                </a>
+
+                <h1 style="padding-bottom: 10px;">
+                    <img src="/media/logo_web/logo_web.png" alt="" width="75" height="75">
+                    <a href="{% url 'home' %}" style="text-decoration: none;">
+                        <span style="font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color:white">
+                        Thế giới công nghệ |</span>
+                    </a>
+                    Thanh toán
+                </h1>
+
+                <form class="d-flex " role="search">
+                    <input class="form-control me-5" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success " type="submit">Search</button>
+                </form>
+            <!-- info -->
+    
+            <div class="header-main-login">
+                <img src="/media/logo_web/icon_avt.png" alt="" width="50" height="50">
+                <span style="font-size: larger;">{{ current_user }}</span>             
+            </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <div>
+        <!--<div style="min-width: 600px">-->
+        <header>
+            <div class="row">
+                <div class="col-sm-9 col-xs-9 company-details">
+                    <div>Trụ sở công ty: 128 Trần Quang Khải, P.Tân Định, Q.1, TP.Hồ Chí Minh</div>
+                    <div>Số điện thoại công ty: +084 362298 8031</div>
+                    <div>fax: +084 362298 8031</div>
+                </div>
+
+            </div>
+        </header>
+        <main>
+            <div  class="row">
+                <h1 style="text-align: center;">Đơn hàng đã được đặt</h1>
+                </div>
+
+                <div class="col-sm-3 col-xs-3 to-details">
+                    <h4 class="to-name">Tên khách hàng :</h4>
+                    <h4 class="to-address">Địa chỉ:</h4>
+                    <h4 class="to-city">Số điện thoại:</h4>
+                </div>
+                
+                <div class="col-sm-3 col-xs-3 purchase-info">
+                    <h4> {{ if_customer.Cust_Name }}</h4>
+                    <h4> {{ if_customer.Cust_Adress }} </h4>
+                    <h4> {{ if_customer.Cust_Phone }} </h4>
+                </div>
+
+                <br>
+                <div class="col-sm-12 col-xs-12 table-responsive">
+                    <table class="table table-condensed" border="0" cellspacing="0" cellpadding="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th class="text-center col-xs-1 col-sm-1">Mã đơn hàng</th>
+                            <th class="text-center col-xs-7 col-sm-7">Tên sản phẩm</th>
+                            <th class="text-center col-xs-1 col-sm-1">Số lượng</th>
+                            <th class="text-center col-xs-3 col-sm-3">Tổng tiền</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        {% for od_detail in od_detail %}
+                        <tr>
+                            <td class="col-xs-1 col-sm-1 text-center"> {{ od_detail.Order_ID_id }} </td>
+                            <td class="text-center"> {{ od_detail.Product_ID.Product_Name }} </td>
+                            <td class="text-center"> {{ od_detail.Quantity }} </td>
+                            <td class="text-center"> {{ od_detail.Total_Price }}.VNĐ </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>               
+                </table>
+            </div>
+            <h4 style="text-align: center;">
+                <a href="{% url 'home' %}" style="text-decoration: none;" class="btn btn-danger">Quay lại trang chủ</a>
+            </h4>  
+        </main>
+        
+        <div style="padding-top: 500px;"></div>
+        <!-- footer -->
+        <footer class="footer mt-auto py-3" style="background-color: hsl(200, 2%, 34%); color:hsl(195, 2%, 69%)">
+            <div style="padding: 30px;">
+                <small style="padding:5px;">
+                    &copy; 2018. Công ty cổ phần Thế giới công nghệ. GPDKKD: 0303217354 do sở KH & ĐT TP.HCM cấp ngày 02/01/2007. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020.
+                    Địa chỉ: 128 Trần Quang Khải, P.Tân Định, Q.1, TP.Hồ Chí Minh. Địa chỉ liên hệ và gửi chứng từ: Lô T2-1.2, Đường D1, Đ. D1, P.Tân Phú, TP.Thủ Đức, TP.Hồ Chí Minh. Điện thoại: 0362298031. Email: cskh@thegioicongnghe.com.vn Chịu trách nhiệm nội dung: Lê Tiến Dũng. Email: ddung4068@thegioicongnghe.com. Xem chính sách sử dụng
+                </small>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
